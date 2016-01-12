@@ -1,0 +1,161 @@
+
+{% extends 'site_base.html' %}
+{% load i18n %}
+
+{% block body_class %}account{% endblock %}
+{% load bootstrap3 %}
+
+
+{% load staticfiles %}
+
+{% block body %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- these are used in the add skill filtering function -->
+<script>
+var word = null;
+var count = 0;
+	function addSkills(){
+		word = document.getElementById("skillInput").value;
+	}
+	function removeElement(elementID){
+		$("#x"+elementID).remove();
+	}
+</script>
+<script>
+$(document).ready(function(){
+	$("#btn1").keypress(function(e){
+		addSkills();
+		if(e.which == 13 && word !='' && word !=' '){
+			count = count+1;
+			var id_name = "skill" + count;
+			$("ol").append("<button id=x"+id_name+">"+word+"<span id="+id_name+" onclick=removeElement(this.id);></span></button>");
+			$('input').blur();
+			document.getElementById("skillInput").value = '+ Add skill';
+		return false;
+		}
+	});
+});
+</script>
+
+<div id="body_TalentsList">
+	<h1>Find Freelancer</h1><br><br><br>
+	<!-- filter bar -->
+	<div class="filter">
+		<!-- filter choices -->
+		<ol>
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Freelancer type</option>
+				<option>Programmer</option>					
+				<option>Singer</option>
+			</select>
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Views</option>
+				<option>1-10</option>
+				<option>>10</option>
+			</select>
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Likes</option>
+				<option><10</option>
+				<option><10</option>
+			</select>
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Location</option>
+				<option>Europe</option>
+				<option>Asia</option>
+				<option>North America</option>
+			</select>
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Language</option>
+				<option>swedish</option>
+				<option>english</option>
+				<option>chinese</option>
+				<option>french</option>
+				<option>finnish</option>
+			</select>					
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Price</option>
+				<option>10 000</option>
+				<option>20 000</option>
+			</select>
+			<select class="selectmenu">
+				<option selected disabled class="hideoption">Payment type</option>
+				<option>Fixed</option>
+				<option>Hourly</option>
+			</select>
+			<button class="Mylikes" onclick="border:3px">My likes
+			</button>				
+		</ol>
+		<!-- add skill filtering choice -->
+		<div id="skillsen">
+			<button id="btn1"><input type="text" id="skillInput" value="+ Add skill" onfocus='if(this.value=="+ Add skill"){this.value="";}'></input></button>
+		</div>
+	</div>
+	<!-- pagination -->
+  	<div class="paginationAbove">
+	    <ul class="pagination">
+	        <li><a href="#">&laquo;</a></li>
+	        <li><a href="#">1</a></li>
+	        <li><a href="#">2</a></li>
+	        <li><a href="#">3</a></li>
+	        <li><a href="#">4</a></li>
+	        <li><a href="#">5</a></li>
+	        <li><a href="#">&raquo;</a></li>
+	    </ul>
+	</div>
+	<!-- list of the filtered freelancers -->
+	<div class="freelancer_list">
+  	{% for user in object_list %}
+    {% if user.is_active %}
+    <!-- each profile is divided into 4 columns of info; left, middle1, middle2 and right -->
+    	<ul id="user">
+	      	<div id="left">
+				<h2><a href="{{ user.worker_profile.get_absolute_url }}">{{ user.first_name }} {{ user.last_name}}</a></h2>
+	      		<div class="image">
+		      		<div class="profilepic">
+		      			<img src="{% static "img/person.png" %}" alt="Profile image" style="margin-bottom: 5px; border-radius:2px">
+		      		</div>
+	      		</div>
+	     	</div>
+		    <div id="middle1">
+		      	<titlename>Wizpace programmer</titlename><br>
+			   	<textarea id ="summaryInList" readonly>{% if user.worker_profile %}{{ user.worker_profile.intro }}{% endif %}</textarea>
+			</div>
+			<div id="middle2">
+				<div class="tag">
+					<!-- SÄTTA MAX ANTAL -->
+					{% for skills in user.worker_profile.skills.all %}
+					<span>{{ skills }}</span>				
+					{% endfor %}
+			   	</div>
+			</div>
+			<div id="right">
+				<div class="countryflagInList">
+					<img src="{% static "img/swe.png" %}" alt="flag"><countryInList> Stockholm, Sweden</countryInList>
+				</div><br></br>
+				<!-- <email>Email 	</email><br></br>
+				<telno>Telephone 	</telno><br></br> -->
+				<language>Language 	</language><br></br>
+				<!-- <like><img src="{% static "img/heart-icon.png" %}" alt="like" width="30" height="25"><liking>Like this user!</liking>
+				</like> -->
+			</div>
+	    </ul>
+    {% endif %}
+  	{% empty %}
+    	<p>No users yet.</p>
+  	{% endfor %}
+	</div>
+	<!-- pagination -->
+	<div class="paginationBelow">
+	    <ul class="pagination">
+	        <li><a href="#">&laquo;</a></li>
+	        <li><a href="#">1</a></li>
+	        <li><a href="#">2</a></li>
+	        <li><a href="#">3</a></li>
+	        <li><a href="#">4</a></li>
+	        <li><a href="#">5</a></li>
+	        <li><a href="#">&raquo;</a></li>
+	    </ul>
+	</div>
+</div>
+{% endblock %}

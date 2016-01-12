@@ -1,0 +1,25 @@
+{% extends "site_base.html" %}
+
+{% load staticfiles %}
+{% load i18n %}
+
+{% load bootstrap3 %}
+
+{% block extra_style %}
+<link href="{% static 'css/signin.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<form class="form-signin" role="form" method="post" action=".">
+  {% csrf_token %}
+
+  <h2 class="form-signin-heading">Please sign in!</h2>
+  <input class="form-control" placeholder="Email" id="id_email" maxlength="254" name="email" type="text" required autofocus=""/>
+  <input type="password" class="form-control" placeholder="Password" id="id_password" name="password" type="password" required />
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" />Sign in</button>
+  <p><a href="{% url 'account_password_reset' %}">Forgot your password?</a></p>
+  <p><a href="{% url 'account_signup' %}">Not a member?</a></p>
+</form>
+{% endblock %}

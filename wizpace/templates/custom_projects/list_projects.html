@@ -1,0 +1,194 @@
+{% extends 'site_base.html' %}
+
+
+{% block body_class %}projects projects-index{% endblock %}
+
+{% block head_title %}Projects{% endblock %}
+{% load bootstrap3 %}
+
+{% load staticfiles %}
+
+{% block body %}
+
+
+
+<script>
+function changeText(idElement)
+{
+	var element = document.getElementById('element' + idElement);
+	if(idElement === 1 || idElement === 2) {
+		if (element.innerHTML === 'Started')
+			element.innerHTML = 'Closed'
+		else{
+			element.innerHTML = 'Started';
+		}
+	}
+}
+</script>
+
+<div id="body_ProfilesList">
+	<!-- filter bar -->
+	<div class="filterProjects">
+			<div class="filterChoicesProject">
+				<div class="btn-group">
+			  		<button class="btn">Project type</button>
+			 		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			   		<span class="caret"></span>
+		  			</button>
+		  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">			  			<li><a tabindex="-1" href="#">Programmer</a></li>
+				  		<li class="disabled"><a tabindex="-1" href="#">Painter</a></li>
+			 			<li><a tabindex="-1" href="#">Designer</a></li>
+					</ul>				
+				</div>
+				<div class="btn-group">
+				<div class="skillBox">
+					<input class="addElement" type="button" value="+" onclick="addSkill();">
+					</p>
+	            </div>		
+	            		
+
+				</div>
+				<div class="btn-group">	
+		  			<button class="btn">Location</button>
+		  			<button class="btn dropdown-toggle" data-toggle="dropdown">
+			    		<span class="caret"></span>		  			
+			    	</button>
+			  		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			  			<li><a tabindex="-1" href="#">Sverige</a></li>
+			  			<li class="disabled"><a tabindex="-1" href="#">Painter</a></li>
+			  			<li><a tabindex="-1" href="#">Norge</a></li>					
+			  		</ul>
+				</div>
+				<div class="btn-group">
+		  			<button class="btn">Language</button>
+		  			<button class="btn dropdown-toggle" data-toggle="dropdown">
+		    		<span class="caret"></span>		  			
+		    	</button>
+			  		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			 			<li><a tabindex="-1" href="#">engelska</a></li>
+			  			<li class="disabled"><a tabindex="-1" href="#">Painter</a></li>
+			  			<li><a tabindex="-1" href="#">Norska</a></li>					
+			  		</ul>
+				</div>
+				<div class="btn-group">
+		  			<button class="btn">Price</button>
+		  			<button class="btn dropdown-toggle" data-toggle="dropdown">		    
+		  				<span class="caret"></span>
+			  		</button>
+			  		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			  			<li><a tabindex="-1" href="#">engelska</a></li>
+			  			<li class="disabled"><a tabindex="-1" href="#">Painter</a></li>
+			  			<li><a tabindex="-1" href="#">Norska</a></li>					
+			  		</ul>
+				</div>
+				<div class="btn-group">
+					<div class="payment">
+						<span><b>Payment type</b></span>
+			  			<input type="checkbox" id="paymentCheck"><span>Fixed</span><input type="checkbox" id="paymentCheck"><span>Hourly</span>
+			 		</div>			
+				</div>
+				<div class="btn-group">	
+		  			<button class="btn">Likes</button>
+		  			<button class="btn dropdown-toggle" data-toggle="dropdown">
+			    		<span class="caret"></span>		  			
+			    	</button>
+			  		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			  			<li><a tabindex="-1" href="#">0-10</a></li>
+			  			<li class="disabled"><a tabindex="-1" href="#">10-20</a></li>
+			  			<li><a tabindex="-1" href="#">>20</a></li>					
+			  		</ul>
+				</div>
+				<div class="btn-group">	
+		  			<button class="btn">Views</button>
+		  			<button class="btn dropdown-toggle" data-toggle="dropdown">
+			    		<span class="caret"></span>		  			
+			    	</button>
+			  		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+			  			<li><a tabindex="-1" href="#">0-50</a></li>
+			  			<li class="disabled"><a tabindex="-1" href="#">50-100</a></li>
+			  			<li><a tabindex="-1" href="#">>100</a></li>					
+			  		</ul>
+				</div>
+				<div class="btn-group">	
+		  			<button class="btn">My likes</button>  			
+				</div>
+			</div>
+		</div>
+	<div id="project_list">
+		<div class="projectHeader">
+			<div id="projectListItem1"><b>Project Name</b></div>
+			<div id="projectListItem2"><b>Skills</b></div>
+			<div id="projectListItem3"><b id="element1">Started</b><button class="startEnd" onclick='changeText(1)'><i class="fa fa-chevron-down" style="font-size:16px"></i></button></div> 
+			<div id="projectListItem4"><b>Price</b></div>
+		</div>
+		<div class="allProjects">
+			<div class="projectElement">
+				<div id="item1"><a style="text-decoration:none"><b>Wizpace</b></a></div>
+				<div id="item2">php</div>
+				<div id="item3">3d april</div>
+				<div id="item4">50SEK</div>
+				<div id="item5">&#9733;</div>
+				<div id="extendedSummary">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+	    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+			</div>
+			<div class="projectElement" data-toggle="collapse" data-target="#demo2">
+				<div id="item1"><a style="text-decoration:none"><b>Finans</b></a></div>
+				<div id="item2">php, java, asd </div>
+				<div id="item3">3d april</div>
+				<div id="item4">50SEK</div>
+				<div id="item5">&#9733;</div>
+
+				<div id="extendedSummary">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+	    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+			</div>
+			<div class="projectElement" data-toggle="collapse" data-target="#demo3">
+				<div id="item1"><a style="text-decoration:none"><b>asdjalksd</b></a></div>
+				<div id="item2">php, java, asd </div>
+				<div id="item3">3d april</div>
+				<div id="item4">50SEK</div>
+				<div id="item5">&#9733;</div>
+				<div id="extendedSummary">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+	    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+			</div>
+			<div class="projectElement" data-toggle="collapse" data-target="#demo2">
+				<div id="item1"><a style="text-decoration:none"><b>sdfs</b></a></div>
+				<div id="item2">php, java, asd </div>
+				<div id="item3">3d april</div>
+				<div id="item4">50SEK</div>
+				<div id="item5">&#9733;</div>
+				<div id="extendedSummary">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+	    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+			</div>
+			<div class="projectElement" data-toggle="collapse" data-target="#demo4">
+				<div id="item1"><a style="text-decoration:none"><b>alksdj asd jdoiwdn oaijd ioaj apsjdalks</b></a></div>
+				<div id="item2">php, java, asd </div>
+				<div id="item3">3d april</div>
+				<div id="item4">50SEK</div>
+				<div id="item5">&#9733;</div>
+				<div id="extendedSummary">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+	    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+	    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</div>
+			</div>
+
+			</div>
+		
+				<br><br><br><p>No projects available at the moment</p>
+
+		</div>
+	</div>
+</div>
+{% endblock %}

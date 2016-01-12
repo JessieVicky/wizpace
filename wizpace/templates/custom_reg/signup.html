@@ -1,0 +1,45 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% load bootstrap3 %}
+
+{% block head_title %}Sign Up{% endblock %}
+
+{% block body %}
+<div style="width: 400px; margin:0px auto;">
+  <form id="signup_form" method="post" action="{% url 'account_signup' %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+    <legend>Sign up</legend>
+      {% csrf_token %}
+      {% bootstrap_field form.first_name layout='inline' %}
+      {% bootstrap_field form.last_name layout='inline' %}
+      {% bootstrap_field form.email layout='inline' %}
+      {% bootstrap_field form.password layout='inline' %}
+      {% bootstrap_field form.password_confirm layout='inline' %}
+      {% bootstrap_field form.acc_type %}
+      {% bootstrap_field form.code %}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+    <button form="signup_form" type="submit" class="btn btn-primary">{% trans 'Sign up' %}</button>
+  </form>
+  <p><small>
+  By registering you are confirming that you agree to our
+  <a href="{% url 'toc' %}"> Terms and Conditions</a>
+  and <a href="{% url 'privacy' %}">Privacy Policy</a>
+  </small></p>
+  <p class="login-signup">
+    <small>
+      {% trans "Already have an account?" %}  <strong><a href="{% url 'account_login' %}">Log in</a></strong>
+    </small>
+  </p>
+</div>
+{% endblock %}
+
+{% block extra_script %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#id_username').focus();
+        });
+    </script>
+{% endblock %}

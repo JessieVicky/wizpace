@@ -1,0 +1,37 @@
+{% extends 'custom_settings/settings_base.html' %}
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block extra_style %}
+  <link href="{% static 'select2/dist/css/select2.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block body_class %}account account-personal{% endblock %}
+
+{% block head_title %}Personal information{% endblock %}
+
+{% block body %}
+{% if request.user.worker_profile %}
+    <div class="row-fluid">
+        <div class="col-md-8">
+            <form method="POST" action="{% url "account_personal" %}">
+                <legend>Personal Information</legend>
+                <div class="col-md-8">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% else %}
+    <h1>Client Profile</h1>
+{% endif %}
+{% endblock %}
+
+
+{% block extra_script %}
+    <script src="{% static 'select2/dist/js/select2.min.js' %}"></script>
+    <script src="{% static 'js/custom_settings/search_country.js' %}"></script>
+{% endblock %}

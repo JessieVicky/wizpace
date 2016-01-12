@@ -1,0 +1,50 @@
+{% extends 'custom_settings/settings_base.html' %}
+
+{% load url from future %}
+
+{% load bootstrap3 %}
+
+{% block body_class %}account account-skills{% endblock %}
+
+{% block head_title %}Skills & Expertise{% endblock %}
+
+{% block body %}
+{% if request.user.worker_profile %}
+    <div class="row-fluid">
+        <div class="col-md-8">
+            <legend>Self introduction</legend>
+            <form method="POST" action="{% url "account_intro" %}" name="intro">
+              {% csrf_token %}
+              {% bootstrap_form intro_form %}
+              <button class="btn btn-primary" type="submit">Save</button>
+            </form>
+            <legend>Skills & Expertise</legend>
+              <div class="well">
+                  {% for skill in request.user.worker_profile.skills.all %}
+                    <form method="POST" action="{% url 'account_skill_delete' skill.id %}">
+                      {% csrf_token %}
+                        <div class="label label-primary">{{ skill }}
+                          <button class="btn btn-primary btn-xs">
+                            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                          </button>
+                        </div>
+                  {% empty %}
+                    <p>No skills added yet</p>
+                  {% endfor %}
+              </div>
+            </form>
+
+            <form method="POST" action="{% url "account_intro" %}" name="skill">
+              {% csrf_token %}
+                <div class="col-md-6">
+                    {% bootstrap_field skills_form.skill layout='inline' %}
+                </div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                  <button class="btn btn-primary" type="submit">Add Skill</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

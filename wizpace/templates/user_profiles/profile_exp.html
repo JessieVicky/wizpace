@@ -1,0 +1,25 @@
+{% extends 'user_profiles/profile.html' %}
+{% block content %}
+
+<div id="main_body">
+
+	<div class="experience">
+		<p>Work experience</p>
+		<ul>
+		  {% for exp in user.experience.all %}
+		  	<work>{% if exp.from_year and exp.to_year %}
+		    {{ exp.from_year }} - {{ exp.to_year }}
+		    <workplace>{{ exp.title }} at {{ exp.company }}</workplace><br>
+		    </work>
+		    {% else %}
+		    </work>
+		    {% endif %}
+		  {% endfor %}
+		</ul>
+	</div>
+</div>
+
+
+
+{% endblock %}
+

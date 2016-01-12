@@ -1,0 +1,210 @@
+{% extends 'site_base.html' %}
+
+
+{% block body_class %}projects projects-index{% endblock %}
+
+{% block head_title %}Projects{% endblock %}
+{% load bootstrap3 %}
+
+{% load staticfiles %}
+
+{% block body %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+function changeText(idElement)
+{
+	var element = document.getElementById('element' + idElement);
+	if(idElement === 1 || idElement === 2) {
+		if (element.innerHTML === 'Started')
+			element.innerHTML = 'Closed'
+		else{
+			element.innerHTML = 'Started';
+		}
+	}
+}
+</script>
+<script>
+var word = null;
+var count = 0;
+	function addSkills(){
+		word = document.getElementById("skillInput").value;
+	}
+	function removeElement(elementID){
+		$("#x"+elementID).remove();
+	}
+</script>
+<script>
+$(document).ready(function(){
+	$("#btn1").keypress(function(e){
+		addSkills();
+		if(e.which == 13 && word !='' && word !=' '){
+			count = count+1;
+			var id_name = "skill" + count;
+			$("ol").append("<button id=x"+id_name+">"+word+"<span id="+id_name+" onclick=removeElement(this.id);></span></button>");
+			$('input').blur();
+			document.getElementById("skillInput").value = '+ Add skill';
+		return false;
+		}
+	});
+});
+</script>
+
+<div id="body_ProfilesList">
+	<h1>Filter options</h1><br><br><br>
+	<!-- filter bar WHOLE-->
+	<div class="filterProjects">
+		<!-- filter choices -->
+		<div class="filterChoicesProject">
+			<ol>
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Freelancer type</option>
+					<option>Programmer</option>					
+					<option>Singer</option>
+				</select>
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Views</option>
+					<option>1-10</option>
+					<option>>10</option>
+				</select>
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Likes</option>
+					<option><10</option>
+					<option><10</option>
+				</select>
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Location</option>
+					<option>Europe</option>
+					<option>Asia</option>
+					<option>North America</option>
+				</select>
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Language</option>
+					<option>swedish</option>
+					<option>english</option>
+					<option>chinese</option>
+					<option>french</option>
+					<option>finnish</option>
+				</select>					
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Price</option>
+					<option>10 000</option>
+					<option>20 000</option>
+				</select>
+				<select class="selectmenu">
+					<option selected disabled class="hideoption">Payment type</option>
+					<option>Fixed</option>
+					<option>Hourly</option>
+				</select>
+				<button class="Mylikes" onclick="border:3px">My likes
+				</button>				
+			</ol>
+			<!-- Add skill filter -->
+			<div id="skillsen">
+				<button id="btn1"><input type="text" id="skillInput" value="+ Add skill" onfocus='if(this.value=="+ Add skill"){this.value="";}'></input></button>
+			</div>
+		</div>
+		<!-- Pagination 1-->
+		<div class="paginationAbove">
+	    <ul class="pagination">
+	        <li><a href="#">&laquo;</a></li>
+	        <li><a href="#">1</a></li>
+	        <li><a href="#">2</a></li>
+	        <li><a href="#">3</a></li>
+	        <li><a href="#">4</a></li>
+	        <li><a href="#">5</a></li>
+	        <li><a href="#">&raquo;</a></li>
+	    </ul>
+		</div>
+		<!-- Projects view -->
+		<div id="project_list">
+			<!-- HEADER for filtered projects -->
+			<div class="projectHeader">
+				<div id="projectListItem1"><b>Project Name</b></div>
+				<div id="projectListItem2"><b>Skills</b></div>
+				<div id="projectListItem3"><b id="element1">Started</b><button class="startEnd" onclick='changeText(1)'><i class="fa fa-chevron-down" style="font-size:16px"></i></button></div> 
+				<div id="projectListItem4"><b>Price</b></div>
+			</div>
+			<!-- filtered projects -->
+			<div class="allProjects">
+				<div class="projectElement">
+					<div id="item1"><a style="text-decoration:none" href="{% url 'home' %}"><b>Wizpace</b></a></div>
+					<div id="item2">php</div>
+					<div id="item3">3d april</div>
+					<div id="item4">50SEK</div>
+					<div id="item5">&#9733;</div>
+					<div id="extendedSummary">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+		    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+				<div class="projectElement" data-toggle="collapse" data-target="#demo2">
+					<div id="item1"><a style="text-decoration:none"><b>Finans</b></a></div>
+					<div id="item2">php, java, asd </div>
+					<div id="item3">3d april</div>
+					<div id="item4">50SEK</div>
+					<div id="item5">&#9733;</div>
+
+					<div id="extendedSummary">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+		    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+				<div class="projectElement" data-toggle="collapse" data-target="#demo3">
+					<div id="item1"><a style="text-decoration:none"><b>asdjalksd</b></a></div>
+					<div id="item2">php, java, asd </div>
+					<div id="item3">3d april</div>
+					<div id="item4">50SEK</div>
+					<div id="item5">&#9733;</div>
+					<div id="extendedSummary">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+		    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+				<div class="projectElement" data-toggle="collapse" data-target="#demo2">
+					<div id="item1"><a style="text-decoration:none"><b>sdfs</b></a></div>
+					<div id="item2">php, java, asd </div>
+					<div id="item3">3d april</div>
+					<div id="item4">50SEK</div>
+					<div id="item5">&#9733;</div>
+					<div id="extendedSummary">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+		    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+				<div class="projectElement" data-toggle="collapse" data-target="#demo4">
+					<div id="item1"><a style="text-decoration:none"><b>alksdj asd jdoiwdn oaijd ioaj apsjdalks</b></a></div>
+					<div id="item2">php, java, asd </div>
+					<div id="item3">3d april</div>
+					<div id="item4">50SEK</div>
+					<div id="item5">&#9733;</div>
+					<div id="extendedSummary">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		    				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,
+		    				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+			</div>
+			<!-- lägg till if-sats 
+			<br><br><br><p>No projects available at the moment</p>-->
+		</div>
+	</div>
+	<!-- Pagination 2-->
+	<div class="paginationBelow">
+	    <ul class="pagination">
+	        <li><a href="#">&laquo;</a></li>
+	        <li><a href="#">1</a></li>
+	        <li><a href="#">2</a></li>
+	        <li><a href="#">3</a></li>
+	        <li><a href="#">4</a></li>
+	        <li><a href="#">5</a></li>
+	        <li><a href="#">&raquo;</a></li>
+	    </ul>
+	</div>
+</div>
+{% endblock %}

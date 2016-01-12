@@ -1,0 +1,116 @@
+{% extends 'custom_settings/settings_base.html' %}
+
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% block body_class %}account account-experience{% endblock %}
+
+{% block head_title %}Work experience{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="col-md-8">
+            <legend>Work Experience</legend>
+            <div>
+                {% if request.user.experience.all %}
+                <table id="exp_table" class="table table-bordered table-condensed">
+                    <tr><th><center>Title</center></th><th><center>Company</center></th><th><center>Years</center></th></tr>
+                    {% for exp in request.user.experience.all %}
+                    <tr align="center">
+                        <td>{{ exp.title }}</td>
+                        <td>{{ exp.company }}</td>
+                        <td>{{ exp.from_year }} - {{ exp.to_year }}</td>
+                        <td>
+                            <form method="POST" action="{% url 'account_experience_delete' exp.id %}">
+                               {% csrf_token %}
+                               <input type="submit" class="btn btn-danger btn-xs" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                    <p>No work experiences added yet, add one below.</p>
+                {% endif %}
+            </div>
+            <div>
+                <form method="POST" class="form-horizontal" action="{% url "account_experience" %}" name="experience">
+                    {% csrf_token %}
+                    <div class="row-fluid">
+                        <div class="col-sm-2">{% bootstrap_field exp_form.title layout='inline' %}</div>
+                        <div class="col-sm-2">{% bootstrap_field exp_form.company layout='inline' %}</div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2">{% bootstrap_field exp_form.from_year layout='inline' %}</div>
+                        <div class="col-sm-2">{% bootstrap_field exp_form.to_year layout='inline' %}</div>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-primary" type="submit">Add new</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="col-md-8">
+            <legend>Education</legend>
+            <div>
+                {% if request.user.education.all %}
+                <table id="edu_table" class="table table-bordered table-condensed">
+                    <tr><th><center>School</center></th><th><center>Programme</center></th><th><center>Years</center></th></tr>
+                    {% for edu in request.user.education.all %}
+                    <tr align="center">
+                        <td>{{ edu.school }}</td>
+                        <td>{{ edu.programme }}</td>
+                        <td>{{ edu.from_year }} - {{ edu.to_year }}</td>
+                        <td>
+                            <form method="POST" action="{% url 'account_education_delete' edu.id %}">
+                               {% csrf_token %}
+                               <input type="submit" class="btn btn-danger btn-xs" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                {% else %}
+                    <p>No education added yet, add one below.</p>
+                {% endif %}
+            </div>
+            <div>
+                <form method="POST" class="form-horizontal" action="{% url "account_experience" %}" name="education">
+                    {% csrf_token %}
+                    <div class="row-fluid">
+                        <div class="col-sm-2">{% bootstrap_field edu_form.school layout='inline' %}</div>
+                        <div class="col-sm-2">{% bootstrap_field edu_form.programme layout='inline' %}</div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2">{% bootstrap_field edu_form.from_year layout='inline' %}</div>
+                        <div class="col-sm-2">{% bootstrap_field edu_form.to_year layout='inline' %}</div>
+                    </div>
+                    <div class="col-sm-1">
+                        <button class="btn btn-primary" type="submit">Add new</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_script %}
+<script type="text/javascript">
+
+    function add_to_years() {
+        $('#id_to_year').children().remove().end()
+        var start = $('#id_from_year').find(":selected").text();
+        var d = new Date();
+        var end = parseInt(d.getFullYear());
+        for (var i = parseInt(start); i <= end; i++) {
+            $('#id_to_year').append($('<option />').val(i).html(i));
+        }
+        // $('#id_to_year').append($('<option />').val('present').html('Present'));
+    }
+
+    $(document).ready( function () {
+        $("#id_from_year").on("change", add_to_years);
+        add_to_years();
+    });
+
+</script>
+{% endblock %}

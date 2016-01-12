@@ -1,0 +1,18 @@
+{% extends 'user_profiles/profile.html' %}
+{% block content %}
+
+<div id="main_body">
+	<p>Summary</p>
+	<!-- {% if textarea } -->
+	<textarea id ="summary" readonly>{% if user.worker_profile %}{{ user.worker_profile.intro }}{% endif %}
+	</textarea>
+	<div id="skills">
+		<p>Skills</p>
+		<tags>
+			{% for skills in user.worker_profile.skills.all %}
+			<span>{{ skills }}</span>
+			{% endfor %}
+		</tags>
+	</div>
+</div>
+{% endblock %}

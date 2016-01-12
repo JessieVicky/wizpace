@@ -1,0 +1,53 @@
+{% extends 'user_profiles/profile.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="main_body">
+	<div class="doneWork">
+		<p>Project name</p><br></br>
+  		<!-- carousel slide for project -->
+  		<div class="projectslide">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="2000">
+			 <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			   </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+			    <div class="item active">
+			      <img src="{% static "img/swe.png" %}" alt="img1">
+			     </div>
+				   <div class="item">
+				    	<!-- doesn't show whole image for some reason -->
+			      <img src="{% static "img/person.png" %}" alt="img2">
+			    </div>
+			    <div class="item">
+			      <img src="{% static "img/wall.jpg" %}" alt="img3">
+				</div>
+				</div>
+
+				  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			  	<span class="glyphicon glyphicon-chevron-right"></span>
+			  </a>
+			</div> <!-- Carousel -->
+		</div>
+
+		<div class="descr">
+			<textarea id="project_descr" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+			Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. </textarea>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+

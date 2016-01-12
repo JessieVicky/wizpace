@@ -1,0 +1,80 @@
+{% extends 'site_base.html' %}
+
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+{% block body_class %}projects projects-add{% endblock %}
+
+{% block head_title %}Add new project{% endblock %}
+
+{% block extra_style %}
+  <link href="{% static 'select2/dist/css/select2.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8">
+            <form method="POST" action="{% url "projects_add" %}">
+                <legend>Project Description</legend>
+                <div class="col-md-8">
+                  {% csrf_token %}
+                  {% bootstrap_form form %}
+                  <button class="btn btn-primary" type="submit">Add Project</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_script %}
+<script src="{% static 'select2/dist/js/select2.min.js' %}"></script>
+<script src="{% static 'bootstrap-datepicker/js/bootstrap-datepicker.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-datepicker/css/bootstrap-datepicker3.css' %}">
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#id_skills").select2({
+      tags: true,
+      tokenSeparators: [',', ' '],
+      ajax: {
+        url: "./search_skill/",
+        delay: 300,
+        dataType: 'json',
+        cache: true,
+        data: function (params) {
+          return {
+            q: params.term, // search term
+          };
+        },
+        processResults: function (data) {
+          var myResults = [];
+          $.each(data, function(index, item) {
+            myResults.push({
+              'id': item.id,
+              'text': item.name
+            });
+          });
+          return {
+            results: myResults
+          };
+        },
+        formatNoResults: function () {
+          return "No results found.";
+        },
+        formatAjaxError: function () {
+          return "No connection to the server";
+        },
+      },
+      escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+      minimumInputLength: 1,
+      // text: 'Add the skills you require'
+    })
+    $(function(){
+      $("#id_end_date").datepicker({
+        format: 'yyyy-mm-dd',
+        startDate: '+1d'
+      });
+    });
+
+  });
+</script>
+{% endblock %}

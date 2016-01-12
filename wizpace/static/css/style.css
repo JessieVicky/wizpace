@@ -1,0 +1,927 @@
+/*---------------------------Home------*/
+h4{
+  font-size: 25px;
+}
+
+/*---------------------------navbar------*/
+nav.navbar{
+  background-image: linear-gradient(-180deg, #33CCCC 100%, #33CCCC 100%);
+  height: 60px; /*how to be smart about the height in other pages*/
+  border: 1px solid #2EB8B8;
+  font-family: AvenirNext-Bold;
+}
+
+.container p a{
+  color: white;
+}
+#navbar .nav li a{
+  margin-top: 5px;
+  color: white;
+}
+
+.navbar-brand{
+  font-size: 30px;
+  color: white !important; /*is there no other way?*/
+  line-height: 30px;
+}
+.navbar-text{
+  font-size: 15px;
+  color: white !important;
+  line-height: 38px;
+}
+
+/*why will they not be white? wrong selector*/
+#navbar{
+  color: white !important;
+}
+
+/*---------------------------------settings_base.html*/
+.panel-heading{
+    background-color: rgba(139,186,240,0.21);
+}
+.list-group-item {
+    font-family: Helvetica;
+    background-color: white;
+}
+/*---------------------------------list.html*/
+#body_TalentsList{
+  position: relative;
+}
+
+h1{
+  position: absolute;
+  left: 53px;
+  color: #33cccc;
+  font-size: 27px;
+  font-family: Helvetica-Bold;
+}
+
+.filter{
+  position: relative;
+}
+
+.buttons{
+  position: absolute;
+  left: 130px;
+  border: 1px solid #D6D4D4;
+  background-color: white;
+  border-radius: 3px;
+  padding: 15px;
+}
+
+/*KANSKE KAN TA BORT DENNA*/
+.btn-group{
+  color: white;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.selectmenu{
+  font-family: Helvetica;
+  font-size: 15px;
+  -webkit-appearance: none;  /*Removes default chrome and safari style*/
+  -moz-appearance: none; /* Removes Default Firefox style*/
+  background: #33cccc ;
+  width: 150px; /*Width of select dropdown to give space for arrow image*/
+  text-indent: 0.01px; /* Removes default arrow from firefox*/
+  text-overflow: "";  /*Removes default arrow from firefox*/ /*My custom style for fonts*/
+  color: #FFF;
+  border-radius: 3px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 10px;
+  padding: 10px;
+  border:0 !important;
+  box-shadow: inset 0 0 0px rgba(000,000,000, 0.5);
+  opacity: 0.7;
+}
+
+.Mylikes{
+  font-family: Helvetica;
+  font-size: 15px;
+  text-indent: 3px;
+  text-align: left;
+  background: #33cccc;
+  width: 150px;
+  color: #FFF;
+  border-radius: 3px;
+  margin-left: 12px;
+  margin-right: 12px;
+  margin-top: 10px;
+  padding: 10px;
+  border:none;
+  opacity: 0.7;
+}
+
+.Mylikes:hover{
+  color:black;
+}
+.selectmenu:hover{
+  color: black;
+  cursor: pointer;
+}
+
+#skillsen{
+  position: absolute;
+  left: 52px;
+}
+
+#btn1{
+  text-indent: 3px;
+  color: white;
+  height: 41px;
+  font-size: 15px;
+  font-family: Helvetica;
+  width: 150px;
+  border: none;
+  border-radius: 3px;
+}
+
+#btn1:hover{
+  cursor: auto;
+}
+
+#skillInput{
+  background-color: #33cccc;
+  border:none;
+}
+input:focus{
+  outline:0;
+}
+button[id^='xskill']{
+  margin-top: 10px;
+  margin-left: 12px;
+  margin-right: 15.5px;
+  border-radius: 3px;
+  color: white;
+  height: 41px;
+  font-size: 15px;
+  font-family: Helvetica;
+  width: 150px;
+  border: none;
+  text-align: left;
+  text-indent: 3px;
+}
+
+
+
+button[id^='xskill']:hover{
+  cursor: default;
+}
+
+span[id^='skill'] {
+  position: absolute;
+  margin-left: 120px;
+  margin-top: -27px;
+  display:block;
+  box-sizing:border-box;
+  width:20px;
+  height:20px;
+  border-width:3px;
+  border-style: solid;
+  border-color:white;
+  border-radius:100%;
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, #33cccc 46%,  #33cccc 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, #33cccc 46%,  #33cccc 56%,transparent 56%, transparent 100%);
+  background-color:white;
+  transition: all 0.3s ease;
+}
+
+span[id^='skill']:hover{
+  background: -webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, orange 46%,  orange 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, orange 46%,  orange 56%,transparent 56%, transparent 100%);
+  background-color:white;
+  cursor: pointer;
+}
+
+
+ul.dropdown-menu{
+  border-radius: 3px;
+}
+button{
+  background-color: #33cccc;
+  opacity: 0.7;
+}
+button.btn{
+  width:158px;
+  background-color: #33cccc;
+  opacity: 0.7;
+
+}
+
+input{
+  text-align: left;
+}
+
+.addElement{
+  margin-left: 12px;
+  font-family: Helvetica;
+  border:none;
+  height: 40px;
+  width: 150px;
+  border-radius: 3px;
+  font-size: 15px;
+  color: #fff;
+  background-color: #33cccc;
+  opacity: 0.7;
+}
+
+.addElement:hover{
+  color: black;
+}
+
+.caret{
+  background-color: #33cccc;  
+}
+
+.paginationAbove{
+  position: relative;
+  margin-top: 40px;
+  right: -73px;
+}
+
+.pagination{
+  position: relative;
+  left: 785px;
+}
+
+.pagination li a{
+  font-family: Helvetica-Bold;
+  color: #33CCCC;
+}
+
+.freelancer_list{
+  position: relative;
+  left:50px;
+}
+
+ul#user{  
+  margin-bottom: 20px;
+  width: 1150px;
+  height: 250px;
+  border-bottom:1px solid #D6D4D4;
+  border-radius: 3px;
+}
+
+.freelancer_list a{
+  position: absolute;
+  width: 150px;
+  margin-top: -5px;
+  color: #33cccc;
+  font-size: 19px;
+  font-family: Helvetica;
+}
+
+.freelancer_list a:hover{
+  text-decoration: none;
+}
+
+.image{
+  position: absolute;
+  margin-top: 35px;
+  }
+
+.profilepic img{
+  position: absolute;
+  width:150px;
+  height: 150px;
+  border: 1px solid #D6D4D4;
+  border-radius: 3px;
+}
+ titlename{
+  font-family: Helvetica-Bold;
+  font-size: 20px;
+  color:#33cccc;
+}
+
+.tag{
+  position: absolute;
+  height: 150px;
+  left: 630px;
+  width: 290px;
+  margin-top: 40px;
+}
+
+.tag span{
+  margin-right: 5px;
+  float: left;
+  margin-bottom: 5px;
+  font-size: 12px;
+  padding-left:10px;
+  padding-right: 10px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  border-radius: 7px;
+  background-color: #AAE8EC;
+  color: #4A4A4A; 
+}
+
+textarea#summaryInList{ 
+  position: absolute;
+  margin-top: 25px;
+  width: 340px;
+  height: 150px;
+  resize:none;
+  font-family: Helvetica;
+  font-size: 12px;
+  color: #4A4A4A;
+  border: none;
+  background-color: #FAFFFA;
+  border-radius: 2px;
+}
+
+#left{
+  position: absolute;
+  left:50px;
+  width: 180px;
+}
+
+#middle1{
+  position: absolute;
+  left: 245px;
+  width: 340px;
+}
+
+#right{
+  position: absolute;
+  left: 910px;
+  margin-top: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 200px; 
+  font-family: Helvetica-Bold;
+  font-size: 13px;
+  color: #33CCCC;
+}
+
+
+countryInList{
+  float: right;
+  margin-top: 5px;
+  margin-right: 35px;
+}
+
+.countryflagInList img{
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  width: 35px;
+  height: 25px;
+}
+
+.paginationBelow{
+  position: relative;
+  right: -73px;
+}
+
+/*---------------------------------profile.html*/
+#whole{
+  position: relative;
+  left:50px;
+}
+#wall{
+  position: relative;
+  width: 1035px;
+  top: -20px;
+  height: 300px;
+  border-bottom: 4px solid #33CCCC;
+  border-radius: 2px;
+  font-family: Helvetica;
+}
+
+choice{
+  position: absolute;
+  width: 900px;
+  top: 300px;
+  background-color: white;
+}
+
+opaque{
+  position: absolute;
+  top:0px;
+  left: 50px;
+  width: 230px;
+  height: 296px;
+  background-color: white;
+  opacity: 0.5;
+}
+
+worktitle{
+  position: absolute;
+  top: 265px;
+  left: 30px;
+}
+
+worktitle span{
+  font-size: 23px;
+  margin-left: 30px;
+  margin-right: 30px;
+  color: #33cccc;
+  font-family: Helvetica;
+}
+
+profileimg{
+  position: absolute;
+  top: 70px;
+  left: 90px;
+}
+
+like{
+  position: absolute;
+  left: 860px;
+  top: 240px;
+  padding: 5px;
+  width: 150px;
+  height: 35px;
+  font-family: Helvetica-Bold;
+  background-color: white;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
+like span{
+  position: relative;
+  float: right;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+
+like:hover{
+  color: #33cccc;
+}
+
+
+/*
+LEFT BAR
+*/
+/*fix so that it reaches the end of the page*/
+.left_bar {
+  position: relative;
+  /*works note correctly*/
+  height: 300px;
+  width: 220px;
+  padding:20px;
+  font-family: Helvetica;
+  font-size: 13px;
+  color: #33CCCC;
+  float:left;
+  }
+
+/*make it all on one line at all times*/
+span.username{
+  position: absolute;
+  top: 25px;
+  left:90px;
+  font-family: Helvetica;
+  font-size: 25px;
+  color: #33cccc;
+  }
+
+#choices{
+  position: absolute;
+  top: 290px;
+  left: 10px;
+  width: 150px;
+  margin-top: 40px;
+}
+
+#choices span{
+  padding: 5px;
+  font-size: 18px;
+}
+#choices span a{
+  color: #33cccc;
+}
+/*smarter way to show the margins? now I use <br>*/
+#choices span.choice1{
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #33CCCC;
+}
+#choices span.choice2{
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #33CCCC;
+}
+
+#choices span.choice3{
+  position: absolute;
+  width: 100%;
+  border-bottom: 1px solid #33CCCC;
+}
+
+/*fix the awkward space when hovering*/
+
+#choices span a:hover{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/*#stats{
+  color: #4A4A4A;
+  left: 10px;
+  top: 180px;
+  position: absolute;
+  margin-top: 30px;
+}*/
+
+#stats{
+  position: absolute;
+  top: 200px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 12px;
+  width: 200px;
+  color: #4A4A4A;
+  font-family: Helvetica-Bold;
+  font-size: 13px;
+}
+#stats stat1, stat2{
+  float: right;
+  margin-right: 50px;
+}
+span.statbox{
+  border: 2px solid #33CCCC;
+  padding: 1px;
+  border-radius: 5px;
+}
+
+/*
+RIGHT BAR
+*/
+.right_bar{
+  position: absolute;
+  top: 330px;
+  left: 800px;
+  font-family: Helvetica-Bold;
+  font-size: 13px;
+  color: #33CCCC;
+}
+
+country{
+  padding-left: 5px;
+}
+
+rate{
+  opacity: 0.4;
+  font-family: Helvetica-Bold;
+  font-size: 20px;
+  color: #4A4A4A;
+  }
+
+/*---------------------------------profile_overview.html*/
+
+#main_body{
+  position: absolute;
+  padding-top: 40px;
+  width:800px;
+  padding-left: 200px;
+  }
+
+
+textarea#summary{
+  width: 550px;
+  height: 200px;
+  resize:none;
+  font-family: Helvetica;
+  font-size: 12px;
+  color: #4A4A4A;
+  border: none;
+  background-color: #FAFFFA ;
+  border-radius: 2px;
+  margin-bottom: 30px;
+}
+p{
+  font-family: Helvetica-Bold;
+  font-size: 14px;
+  color: #33CCCC;
+}
+
+#skills{
+  position: relative;
+}
+
+
+tags span{
+  float: left;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  padding-left:12px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  border-radius: 7px;
+  background-color: #E0F9F3;
+  color: #4A4A4A;
+}
+
+/*---------------------------------profile_portfolio.html*/
+
+#main_body{
+  position: absolute;
+  width:800px;
+  padding-left: 200px;
+  }
+
+
+.doneWork{
+  margin-top: 40px;
+}
+
+.projectslide{
+
+}
+
+.descr{
+  float: left;
+  margin-left: 30px;
+}
+#carousel-example-generic{
+  float: left;
+  top:-30px;
+  width: 200px;
+  height: 125px;
+}
+
+/*.carousel-inner{
+  width: 200px;
+  height: 100px;
+}
+*/
+#carousel-example-generic a{
+  height: 125px;
+  top: 0px;
+}
+
+.carousel-indicators{
+  top:100px;
+}
+
+.item{
+  height: 125px;
+}
+
+textarea#project_descr{
+  float: right;
+  margin-right: 30px;
+  margin-top:-30px;
+  width:310px;
+  height: 125px;
+  max-height: 285px;
+  max-width: 310px;
+  font-family: Helvetica;
+  font-size: 12px;
+  color: #4A4A4A;
+  border:none;
+  background-color: #FAFFFA;
+  border-radius: 2px;}
+
+/*---------------------------------profile_exp.html*/
+
+#main_body{
+  position: absolute;
+  padding-top: 40px;
+  width:800px;
+  padding-left: 200px;
+  }
+
+
+ul{
+  position: relative;
+  left: -38px;
+  color: #4A4A4A;
+  margin-bottom: 40px;
+}
+workplace{
+  padding-left: 100px;
+}
+
+.experience{
+}
+
+/*---------------------------------index.html*/
+#body_ProfilesList{
+  position: relative;
+  font-family: Helvetica;
+}
+
+.filterProjects{
+  position: relative;
+}
+
+.filterChoicesProject{
+  position: relative;
+}
+
+.payment span{
+  margin-left: 5px;
+  margin-right: 15px;
+  color: black;
+}
+
+#project_list{
+  position: relative;
+  left: 50px;
+  width:1040px;
+}
+
+.projectHeader{
+  background-color: #33cccc;
+  padding: 15px;
+  padding-bottom: 35px; 
+  border-radius: 3px;
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+#element1{
+}
+
+.startEnd{
+  margin-top: -3px;  
+  border:none;
+  background-color: transparent;
+}
+
+#projectListItem1{
+  float: left;
+  width:422px;
+}
+
+#projectListItem2{
+  float: left;
+  width: 242px;
+}
+
+
+#projectListItem3{
+  float: left;
+  width: 192px;
+}
+
+#projectListItem4{
+  float: left;
+  width: 100px;
+}
+
+#projectListItem5{
+  float: left;
+  width: 40px;
+}
+
+.allProjects{
+  width: 1040px;
+}
+
+.projectElement{
+  padding: 15px;
+  padding-bottom: 35px; 
+  border-bottom: 1px solid #D6D4D4;
+  background-color: white;
+  height:20px;
+  overflow: hidden;
+}
+
+#item1{
+  float: left;
+  width: 422px;
+  text-decoration: none;
+
+}
+#item1 a{
+  color: black;
+}
+
+#item2{
+  float: left;
+  width: 242px;
+}
+#item3{
+  float: left;
+  width: 192px;
+}
+
+#item4{
+  float: left;
+  width: 100px;
+}
+
+#item5{
+  float: left;
+  width: 40px;
+  color: #E6E6E6;
+  margin-left: 10px;
+  margin-top: -2px;
+  font-size: 18px;
+}
+
+#item1:hover{
+  cursor: pointer;
+}
+#item5:hover{
+  color: #33cccc;
+  cursor: pointer;
+}
+
+#extendedSummary{
+  margin-top: 35px;
+  width: 350px;  
+}
+
+.projectElement:hover{
+  height: 150px;
+}
+
+#foot{
+  position: relative;
+}
+/*----------------------------------------project_home*/
+#projectHome{
+  position: relative;
+}
+#projectContent{
+  position: relative;
+  height: 80px;
+}
+.headerLine{
+  position: relative;
+  margin-top: 14px;
+  left: 30px;
+  width: 1060px;
+  border-bottom: 1px solid #33cccc;
+}
+.postedDate{
+  margin-top: 8px;
+  margin-right: 80px;
+  float: right;
+}
+
+.rightInfo{
+  position: absolute;
+  top:100px;
+  left: 870px;
+  font-family: Helvetica-Bold;
+  font-size: 13px;
+  color: #33CCCC;
+}
+.part1{
+  position: relative;
+  left: 55px;
+}
+
+.part2{
+  position: relative;
+  left: 55px;
+  margin-top: 110px;
+}
+.part1 p{
+  color: black;
+  font-family: Helvetica;
+}
+h3{
+  font-size: 16px;
+  color: #33cccc;
+}
+
+.tagInProject{
+  position: relative;
+  width: 770px;
+}
+.tagInProject span{
+  float: left;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  padding-left:12px;
+  padding-right: 12px;
+  padding-bottom: 6px;
+  padding-top: 6px;
+  border-radius: 7px;
+  background-color: #E0F9F3;
+  color: #4A4A4A;
+}
+textarea#projectSummary{
+  margin-top: -20px;
+  width:770px;
+  height: 125px;
+  resize:none;
+  font-family: Helvetica;
+  font-size: 12px;
+  color: #4A4A4A;
+  border:none;
+  background-color: #FAFFFA;
+  border-radius: 2px;
+}
+
+.countryInProject img{
+  position: absolute;
+  top: 144px;
+  left: 0px;
+  width: 35px;
+  height: 25px;
+}
+
+.countryInProject countryInList{
+  float: right;
+  margin-top: 5px;
+  margin-left: 40px;
+}
